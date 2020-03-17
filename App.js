@@ -1,14 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import AppNavigator from './Navigation/MealNavigation';
 
 const App = () => {
-  return (
-    <View>
-      <Text>App started</Text>
-    </View>
-  )
+  return <AppNavigator/>
 }
 
 export default App
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+})
