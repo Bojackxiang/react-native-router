@@ -1,18 +1,29 @@
-import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
-import {globalStyles} from '../Global/Styles'
+import React from 'react';
+import {StyleSheet, Text, View, Button} from 'react-native';
+import {globalStyles} from '../Global/Styles';
 
-const CategoryMealsScreen = (props) => {
-    return (
-        <View style={globalStyles.container}>
-            <Text style={globalStyles.textCenter}>CategoryMealsScreen</Text>
-            <Button title="go to the detail" onPress={() => {
-                props.navigation.navigate("MealDetailScreen")
-            }}/>
-        </View>
-    )
-}
+const CategoryMealsScreen = props => {
+  return (
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.textCenter}>CategoryMealsScreen</Text>
+      {/* // * 除了navigate还能用push
+        但是push可以在当前页面然后跑到当前页面
+        props.navigation.navigate({routerName:"MealDetailScreen"}) 
+        */}
+      <Button
+        title="go to the detail"
+        onPress={() => {
+          props.navigation.push({routerName: 'MealDetailScreen'});
+        }}
+      />
+      <Button onPress={props.navigation.goBack()}>Go Back</Button>
+      <Button onPress={props.navigation.popToTop()}>Pop top</Button>
+      {/* replace之后了就没有back */}
+      <Button onPress={props.navigation.replace()}>Replace</Button>
+    </View>
+  );
+};
 
-export default CategoryMealsScreen
+export default CategoryMealsScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

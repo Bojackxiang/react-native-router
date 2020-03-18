@@ -9,10 +9,13 @@ export const globalStyles = StyleSheet.create({
     },
     textCenter: {
         textAlign: 'center',
-        backgroundColor: 'lightgreen',
         width: '100%',
-        alignSelf:'flex-start'
     }
   })
+
+  export const headerStyle = {
+      backgroundColor: 'smokewhite',
+      backgroundColor: 'lightgray'
+  }
 
   
