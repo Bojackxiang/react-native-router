@@ -7,7 +7,7 @@ const CategoriesScreen = props => {
   // -> rendered items
   const renderData = renderedItem => {
     return (
-      <View style={styles.gridItem}>
+      <View style={{...styles.gridItem, backgroundColor: renderedItem.item.color,}}>
         <TouchableOpacity
           onPress={() => {
             props.navigation.navigate({routeName: 'CategoryMealsScreen', params: {id: renderedItem.item.id}});
@@ -26,7 +26,6 @@ const CategoriesScreen = props => {
       renderItem={renderData}
       numColumns={2}></FlatList>
   );
-  // return <Text>hello</Text>
 };
 
 export default CategoriesScreen;
@@ -34,9 +33,16 @@ export default CategoriesScreen;
 const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
+    margin: 15, 
+    borderRadius: 10,
+    height: 150,
+    justifyContent: 'flex-end'
   },
+
   gridText: {
-    margin: 10,
+    textAlign: 'right',
+    padding: 20, 
+    fontSize: 20
   },
 });
 

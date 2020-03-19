@@ -1,13 +1,17 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {globalStyles, headerStyle} from '../Global/Styles';
+import {meals} from '../data/dummy-meals'
 
-const MealDetailScreen = (props) => {
-  const id = props.navigation.getParam(id)
-  console.log(id)
+const MealDetailScreen = props => {
+  const mealId = props.navigation.getParam('mealId');
+  
+  const selectedItem = meals.find(meal => meal.id === mealId)
+  
+  
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.textCenter}>MealDetailScreen - {id}</Text>
+      <Text style={globalStyles.textCenter}>{selectedItem.title}</Text>
     </View>
   );
 };
@@ -26,5 +30,11 @@ MealDetailScreen.navigationOptions = {
     ...headerStyle,
   },
 };
+
+MealDetailScreen.navigationOptions = (navigationData) => {
+  return {
+    headerTitle: navigationData.navigation.getParam('mealId')
+  }
+}
 
 export default MealDetailScreen;

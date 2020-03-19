@@ -1,16 +1,32 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View, Button, FlatList} from 'react-native';
 import {globalStyles, headerStyle} from '../Global/Styles';
 import {CATEGORIES} from '../data/dummy-data';
+import {meals} from '../data/dummy-meals';
+import MealItem from '../Components/MealItem';
 
 const CategoryMealsScreen = props => {
-  const id = props.navigation.getParam('id');
-  let Category = CATEGORIES.find(cat => cat.id === id);
-  console.log(Category);
-  console.log(id);
+  const cateId = props.navigation.getParam('id');
+
+  const displayList = meals.filter(
+    item => item.categoryIds.indexOf(cateId) >= 0,
+  );
+
+
+  const renderedMeals = renderedItem => {
+    console.log(renderedItem)
+    return (
+      <MealItem
+        item={renderedItem}
+        onSelectMeal={() => {
+          props.navigation.navigate({routeName: 'MealDetailScreen', params: {mealId: renderedItem.item.id}});
+        }}></MealItem>
+    );
+  };
+
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.textCenter}>{Category.title}</Text>
+      <FlatList data={displayList} renderItem={renderedMeals}></FlatList>
     </View>
   );
 };
@@ -20,14 +36,12 @@ export default CategoryMealsScreen;
 const styles = StyleSheet.create({});
 
 CategoryMealsScreen.navigationOptions = navigationData => {
-  const id = navigationData.navigation.getParam('id')
-  const category = CATEGORIES.find(cat => cat.id === id)
+  const id = navigationData.navigation.getParam('id');
+  const category = CATEGORIES.find(cat => cat.id === id);
   return {
     headerTitle: category.title,
-  }
-}
-
-
+  };
+};
 
 // // * 除了navigate还能用push
 //         但是push可以在当前页面然后跑到当前页面
