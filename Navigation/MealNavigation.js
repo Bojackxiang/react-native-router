@@ -3,7 +3,10 @@ import {createAppContainer} from 'react-navigation';
 import CategoriesScreen from '../Screens/CategoriesScreen';
 import CategoryMealsScreen from '../Screens/CategoryMealsScreen';
 import MealDetailScreen from '../Screens/MealDetailScreen';
-import {headerStyle} from '../Global/Styles'
+import {headerStyle} from '../Global/Styles';
+
+
+
 
 const AppNavigation = createStackNavigator(
   {
@@ -27,5 +30,8 @@ const AppNavigation = createStackNavigator(
     },
   },
 );
+
+
+
 
 export default createAppContainer(AppNavigation);
