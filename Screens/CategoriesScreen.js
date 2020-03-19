@@ -43,7 +43,5 @@ const styles = StyleSheet.create({
 // * 增加header
 CategoriesScreen.navigationOptions = {
   headerTitle: 'Meal Options',
-  headerStyle: {
-    ...headerStyle,
-  },
+  
 };

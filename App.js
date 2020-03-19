@@ -1,6 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import AppNavigator from './Navigation/MealNavigation';
+import {useScreens} from 'react-native-screens'
+
+useScreens()
 
 const App = () => {
   return <AppNavigator/>

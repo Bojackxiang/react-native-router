@@ -15,7 +15,7 @@ export const globalStyles = StyleSheet.create({
 
   export const headerStyle = {
       backgroundColor: 'smokewhite',
-      backgroundColor: 'lightgray'
+      backgroundColor: '#eeeeee'
   }
 
   

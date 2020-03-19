@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 });
 
 MealDetailScreen.navigationOptions = {
-  headerTitle: 'Meal Options',
+  // headerTitle: 'Meal Options',
   headerStyle: {
     ...headerStyle,
   },

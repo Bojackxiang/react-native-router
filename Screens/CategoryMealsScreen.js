@@ -24,9 +24,6 @@ CategoryMealsScreen.navigationOptions = navigationData => {
   const category = CATEGORIES.find(cat => cat.id === id)
   return {
     headerTitle: category.title,
-    headerStyle: {
-      ...headerStyle
-    }
   }
 }
 
